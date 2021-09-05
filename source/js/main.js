@@ -35,8 +35,7 @@ let Timer = setInterval(function () {
   let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor(diff % (1000 * 60) / 1000);
   let Time = document.querySelector(".order__timer");
-  // Time.innerHTML = startTime.getTime() + " " + now + " " + diff + " " + seconds;
-  Time.innerHTML = "До конца акции " + minutes + "минут " + seconds + "секунд ";
+  Time.innerHTML = "До&nbsp;конца акции " + minutes + "&nbsp;минут " + seconds + "&nbsp;секунд ";
   if (diff < 0) {
     clearInterval(Timer);
     Time.innerHTML = "Время акции истекло"
@@ -52,9 +51,9 @@ for (let i = 0; i < inputs.length; i++) {
     for (input of inputs) {
       let labl = input["labels"];
       if (input["value"].length != 0) {
-        labl[0].classList.add("visually-hidden");
+        labl[0].classList.add("order__placeholder--fill");
       } else {
-        labl[0].classList.remove("visually-hidden");
+        labl[0].classList.remove("order__placeholder--fill");
       }
 
     }
