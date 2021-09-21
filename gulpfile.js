@@ -23,6 +23,19 @@ const styles = () => {
 
 exports.styles = styles;
 
+//Copy
+
+const copy = (done) => {
+  gulp.src("source/**/*.*",
+    {
+      base: "source"
+    })
+    .pipe(gulp.dest("."))
+  done();
+}
+
+exports.copy = copy;
+
 //Server
 
 const server = (done) => {
@@ -45,6 +58,11 @@ const watcher = () => {
   gulp.watch("source/less/**/*.less", gulp.series("styles"));
   gulp.watch("source/*.html").on("change", sync.reload);
 }
+
+//Перенос для Pages в GitHab
+
+const pages = gulp.series(styles, copy);
+exports.pages = pages;
 
 exports.default = gulp.series(
   styles, server, watcher

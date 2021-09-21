@@ -18,6 +18,7 @@
     "editorconfig": "editorconfig-cli",
     "test": "npm run editorconfig",
     "build": "gulp styles",
+    "pages": "gulp pages",
     "start": "gulp"
   },
   "browserslist": [
